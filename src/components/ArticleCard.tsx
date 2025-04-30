@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { RootState } from '@/store';
 import { Article, Category } from '@/types';
 import { categoryInfo } from '@/mock/data';
 import { Clock, TrendingUp } from 'lucide-react';

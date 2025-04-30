@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
-import { fetchAllArticles, setSelectedCategory } from '../store/slices/newsSlice';
+import { fetchAllArticles, setSelectedCategory } from '@/store/slices/newsSlice';
 import ArticleCard from './ArticleCard';
-import { Category } from '../types';
+import { Category } from '@/types';
 import { RefreshCw } from 'lucide-react';
 import { categoryInfo } from '@/mock/data';
-import useWebSocket from '../hooks/useWebSocket';
+import useWebSocket from '@/hooks/useWebSocket';
 import { formatDistanceToNow } from 'date-fns';
 
 const NewsFeed: React.FC = () => {
