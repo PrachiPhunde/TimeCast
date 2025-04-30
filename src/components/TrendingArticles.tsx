@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { Article } from '../types';
+import { RootState } from '@/store';
+import { Article } from '@/types';
 import { formatDistanceToNow } from 'date-fns';
 import { TrendingUp, ExternalLink } from 'lucide-react';
-import { categoryInfo } from '../mock/data';
+import { categoryInfo } from '@/mock/data';
 
 const TrendingArticles: React.FC = () => {
   const { articles } = useSelector((state: RootState) => state.news);

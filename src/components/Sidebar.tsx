@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { setSelectedCategory, toggleCategorySubscription } from '../store/slices/newsSlice';
-import { setSidebarOpen } from '../store/slices/uiSlice';
-import { Category } from '../types';
-import { categoryInfo } from '../mock/data';
+import { RootState } from '@/store';
+import { setSelectedCategory, toggleCategorySubscription } from '@/store/slices/newsSlice';
+import { setSidebarOpen } from '@/store/slices/uiSlice';
+import { Category } from '@/types';
+import { categoryInfo } from '@/mock/data';
 import { 
   Cpu, Briefcase, Trophy, Landmark, HeartPulse, Film, 
   FlaskConical, Home, X, Bell, Star

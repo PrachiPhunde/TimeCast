@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { Article, Category } from '../../types';
-import { fetchArticles, generateNewArticle } from '../../mock/data';
+import { Article, Category } from '@/types';
+import { fetchArticles, generateNewArticle } from '@/mock/data';
 
 interface NewsState {
   articles: Article[];
