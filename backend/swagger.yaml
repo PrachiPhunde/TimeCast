@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  title: News Feed API
+  version: 1.0.0
+  description: API for real-time news feed application
+
+servers:
+  - url: http://localhost:3001/api
+    description: Development server
+
+paths:
+  /articles:
+    get:
+      summary: Get all articles
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+            enum: [tech, business, sports, politics, health, entertainment, science]
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: List of articles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  articles:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+                  pages:
+                    type: integer
+
+  /articles/trending:
+    get:
+      summary: Get trending articles
+      responses:
+        '200':
+          description: List of trending articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+
+  /articles/search:
+    get:
+      summary: Search articles
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: category
+          in: query
+          schema:
+            type: string
+            enum: [tech, business, sports, politics, health, entertainment, science]
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+
+components:
+  schemas:
+    Article:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+        category:
+          type: string
+          enum: [tech, business, sports, politics, health, entertainment, science]
+        author:
+          type: string
+        publishedAt:
+          type: string
+          format: date-time
+        imageUrl:
+          type: string
+        source:
+          type: string
+        trending:
+          type: boolean
+        readTime:
+          type: integer
+      required:
+        - title
+        - summary
+        - content
+        - category
+        - author
+        - publishedAt
+        - imageUrl
+        - source
+        - readTime 
